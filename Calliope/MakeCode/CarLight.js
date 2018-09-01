@@ -1,10 +1,8 @@
 let fussgaengerWunsch = false
-// Diese Funktion schaltet erst alle LEDs aus und
-// zeigt anschließend ein grüne Licht an. Die Farb-LED
-// wird auf Grün gestellt.
-function schalteAmpelGruen()  {
-    alleLEDsAus()
-    basic.setLedColor(Colors.Green)
+// Insgesamt 4 verschiedene Ampelphasen:
+// https://goo.gl/TgJKfk Rot, Rot-Gelb, Grün, Gelb
+function einleitung()  {
+	
 }
 // Diese Funktion schaltet erst alle LEDs aus und
 // zeigt anschließend ein gelbes Licht an. Die
@@ -27,24 +25,6 @@ function schalteAmpelRotGelb()  {
         # # # # #
         # # # # #
         `)
-}
-// Diese Funktion schaltet erst alle LEDs aus und
-// zeigt anschließend ein rotes Licht an. Die
-// LED-Matrix wird angeschaltet.
-function schalteAmpelRot()  {
-    alleLEDsAus()
-    // Anschließend Rote Ampel anschalten.
-    led.enable(true)
-    basic.showLeds(`
-        # # # # #
-        # # # # #
-        # # # # #
-        # # # # #
-        # # # # #
-        `)
-    // Die Autoampel sendet an andere Ampeln, dass sie auf
-    // Rot gestellt ist.
-    radio.sendString("AUTOS_ROT")
 }
 radio.onDataPacketReceived( ({ receivedString }) =>  {
     // Wenn ein Fußgänger über die Straße gehen will
@@ -77,15 +57,38 @@ radio.onDataPacketReceived( ({ receivedString }) =>  {
         }
     }
 })
-// Insgesamt 4 verschiedene Ampelphasen:
-// https://upload.wikimedia.org/wikipedia/commons/2/24/Traffic_lights_4_states.svg
-// Rot, Rot-Gelb, Grün, Gelb Alle LEDs ausschalten
-// damit keine Mischfarben angezeigt werden
+// Diese Funktion schaltet erst alle LEDs aus und
+// zeigt anschließend ein rotes Licht an. Die
+// LED-Matrix wird angeschaltet.
+function schalteAmpelRot()  {
+    alleLEDsAus()
+    // Anschließend Rote Ampel anschalten.
+    led.enable(true)
+    basic.showLeds(`
+        # # # # #
+        # # # # #
+        # # # # #
+        # # # # #
+        # # # # #
+        `)
+    // Die Autoampel sendet an andere Ampeln, dass sie auf
+    // Rot gestellt ist.
+    radio.sendString("AUTOS_ROT")
+}
+// Alle LEDs ausschalten damit keine Mischfarben
+// angezeigt werden
 function alleLEDsAus()  {
     led.enable(false)
     basic.clearScreen()
     basic.setLedColor(0)
     led.enable(true)
+}
+// Diese Funktion schaltet erst alle LEDs aus und
+// zeigt anschließend ein grüne Licht an. Die Farb-LED
+// wird auf Grün gestellt.
+function schalteAmpelGruen()  {
+    alleLEDsAus()
+    basic.setLedColor(Colors.Green)
 }
 radio.setGroup(0)
 radio.setTransmitPower(7)
