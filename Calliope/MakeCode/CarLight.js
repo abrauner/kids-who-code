@@ -1,3 +1,4 @@
+let fussgaengerWunsch = false
 // Diese Funktion schaltet erst alle LEDs aus und
 // zeigt anschließend ein grüne Licht an. Die Farb-LED
 // wird auf Grün gestellt.
@@ -86,7 +87,6 @@ function alleLEDsAus()  {
     basic.setLedColor(0)
     led.enable(true)
 }
-let fussgaengerWunsch = false
 radio.setGroup(0)
 radio.setTransmitPower(7)
 schalteAmpelGruen()
