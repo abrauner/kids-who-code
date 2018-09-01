@@ -85,7 +85,7 @@ radio.onDataPacketReceived(({ receivedString }) => {
 
     }
 })
-
+let fussgaengerWunsch = false
 radio.setGroup(0)
 radio.setTransmitPower(7)
 schalteAmpelGruen()
