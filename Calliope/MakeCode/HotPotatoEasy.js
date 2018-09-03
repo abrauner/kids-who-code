@@ -2,25 +2,23 @@
 // Level: easy
 //
 // Game mechanics:
-// When button A is pressed, it will start a countdown,
-// during which time the participants have to pass the
-// Calliope around to each other until the time expires.
-// The participant that holds the Calliope when this
-// happens, loses.
+// When button A is pressed, it will start a countdown
+// (5 - 30 seconds), during which time the participants
+// have to pass the Calliope around to each other until
+// the time expires. The participant that holds the
+// Calliope when this happens, loses.
 //
 // Functionality:
 // - During the countdown, it displays a constant
 // blinking green light and emits a beeping.
-// - When the expiration time arrives, it will dusplay
+// - When the expiration time arrives, it will display
 // a red light and a skull icon and it will emit a
 // high-pitched beeping. 
-// - The expiration time is set randomly between 5 and
-// 25 seconds.
 
 let counter = 0
 input.onButtonPressed(Button.A, () => {
     basic.clearScreen()
-    counter = 5 + Math.random(21)
+    counter = 5 + Math.random(26)
     while (counter > 0) {
         basic.setLedColor(Colors.Green)
         music.playTone(247, music.beat(BeatFraction.Quarter))
