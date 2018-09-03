@@ -3,24 +3,22 @@
 // Level: medium
 //
 // Game mechanics:
-// When button A is pressed, it will start a countdown,
-// during which time the participants have to pass the
-// Calliope around to each other until the time expires.
-// The participant that holds the Calliope when this
-// happens, loses.
+// When button A is pressed, it will start a countdown
+// (5 - 30 seconds) during which time the participants
+// have to pass the Calliope around to each other until
+// the time expires. The participant that holds the
+// Calliope when this happens, loses.
 //
 // Functionality:
 // - During the countdown, it displays a blinking green
 // light and emits a beeping, both become faster as the
 // expiration time draws near.
 // - When the countdown signal tops its maximum speed,
-// it will stay there between 0 and 5 seconds, to avoid
-// giving away the exact time of expiration.
+// it will stay there maximum 5 seconds, to avoid giving
+// away the exact time of expiration.
 // - When the expiration time arrives, it will display
 // a red light and a skull icon and it will emit a
 // high-pitched beeping sound 5 times. 
-// - The expiration time is set randomly between 5 and
-// 25 seconds.
 
 let countdown = false
 let counter = 0
