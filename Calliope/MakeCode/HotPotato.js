@@ -13,6 +13,9 @@
 // - During the countdown, it displays a blinking green
 // light and emits a beeping, both become faster as the
 // expiration time draws near.
+// - When the countdown signal tops its maximum speed,
+// it will stay there between 0 and 5 seconds, to avoid
+// giving away the exact time of expiration.
 // - When the expiration time arrives, it will display
 // a red light and a skull icon and it will emit a
 // high-pitched beeping sound 5 times. 
