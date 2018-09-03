@@ -8,8 +8,8 @@ input.onButtonPressed(Button.A, () => {
 })
 spaceship = game.createSprite(2, 4)
 while (true) {
-    basic.pause(500)
     asteroids.push(game.createSprite(Math.random(5), 0))
+    basic.pause(500)
     for (let asteroid of asteroids) {
         if (asteroid.isTouching(spaceship)) {
             music.beginMelody(music.builtInMelody(Melodies.Baddy), MelodyOptions.Once)
