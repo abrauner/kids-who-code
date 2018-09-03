@@ -23,6 +23,7 @@ let countdown = false
 let counter = 0
 let initialCounter = 0
 input.onButtonPressed(Button.A, () => {
+    basic.clearScreen()
     initialCounter = 5 + Math.random(21)
     counter = initialCounter
     countdown = true
