@@ -13,7 +13,7 @@
 // blinking green light and emits a beeping.
 // - When the expiration time arrives, it will dusplay
 // a red light and a skull icon and it will emit a
-// high-pitched beeping sound 5 times. 
+// high-pitched beeping. 
 // - The expiration time is set randomly between 5 and
 // 25 seconds.
 
@@ -29,8 +29,6 @@ input.onButtonPressed(Button.A, () => {
     }
     basic.setLedColor(Colors.Red)
     basic.showIcon(IconNames.Skull)
-    for (let i = 0; i < 5; i++) {
-        music.playTone(880, music.beat(BeatFraction.Double))
-        music.playTone(784, music.beat(BeatFraction.Double))
-    }
+    music.playTone(880, music.beat(BeatFraction.Double))
+    music.playTone(784, music.beat(BeatFraction.Double))
 })
