@@ -19,6 +19,7 @@
 
 let counter = 0
 input.onButtonPressed(Button.A, () => {
+    basic.clearScreen()
     counter = 5 + Math.random(21)
     while (counter > 0) {
         basic.setLedColor(Colors.Green)
