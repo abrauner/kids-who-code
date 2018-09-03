@@ -1,6 +1,5 @@
-
 // Implementation for Calliope of the game "hot potato".
-// Level: medium
+// Level: easy
 //
 // Game mechanics:
 // When button A is pressed, it will start a countdown,
@@ -10,41 +9,28 @@
 // happens, loses.
 //
 // Functionality:
-// - During the countdown, it displays a blinking green
-// light and emits a beeping, both become faster as the
-// expiration time draws near.
-// - When the expiration time arrives, it will display
+// - During the countdown, it displays a constant
+// blinking green light and emits a beeping.
+// - When the expiration time arrives, it will dusplay
 // a red light and a skull icon and it will emit a
 // high-pitched beeping sound 5 times. 
 // - The expiration time is set randomly between 5 and
 // 25 seconds.
 
-let countdown = false
 let counter = 0
-let initialCounter = 0
 input.onButtonPressed(Button.A, () => {
-    initialCounter = 5 + Math.random(21)
-    counter = initialCounter
-    countdown = true
+    counter = 5 + Math.random(21)
     while (counter > 0) {
+        basic.setLedColor(Colors.Green)
+        music.playTone(247, music.beat(BeatFraction.Quarter))
+        basic.setLedColor(0)
         basic.pause(1000)
         counter += -1
     }
-    basic.pause(Math.random(5001))
-    countdown = false
     basic.setLedColor(Colors.Red)
     basic.showIcon(IconNames.Skull)
     for (let i = 0; i < 5; i++) {
         music.playTone(880, music.beat(BeatFraction.Double))
         music.playTone(784, music.beat(BeatFraction.Double))
-    }
-})
-
-basic.forever(() => {
-    if (countdown) {
-        basic.setLedColor(Colors.Green)
-        music.playTone(247, music.beat(BeatFraction.Quarter))
-        basic.setLedColor(0)
-        basic.pause(counter * 1000 / initialCounter)
     }
 })
