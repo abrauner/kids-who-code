@@ -4,7 +4,7 @@
 //
 // Game mechanics:
 // When button A is pressed, it will start a countdown
-// (5 - 30 seconds) during which time the participants
+// (5 - 30 seconds), during which time the participants
 // have to pass the Calliope around to each other until
 // the time expires. The participant that holds the
 // Calliope when this happens, loses.
